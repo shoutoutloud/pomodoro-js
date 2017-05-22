@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style media="screen">
+      .tm{
+        font-size: 24px;
+      }
+    </style>
+    <meta charset="utf-8">
+    <title>Pomodoro clock</title>
+  </head>
+  <body>
+    <h1>POMODORO CLOCK</h1>
+    Enter time(in minutes) <br>
+    <input type="text" id="pom" name="" value=""> <br>Enter break time(in minutes) <br>
+    <input type="text" id="break" name="" value="">
+    <button onclick="start()" type="button" name="button">START</button>
+    <div id="time" class="tm">
+
+    </div>
+    <audio id="xyz" src="alarm.mp3" preload="auto"></audio>
+    <script type="text/javascript">
+
+    var breakt=document.getElementById('break').value;
+    function start(){
+      var pomt=parseInt(document.getElementById('pom').value);
+      var por = pomt*60
+      var t=setInterval(function(){
+        document.getElementById('time').innerHTML=por+' seconds remaining!' ;
+        por=por-1;
+        if(por<0){
+          //clearInterval(t);
+          document.getElementById('xyz').play();
+          // alert("time out!");
+          stbreak();
+          clearInterval(t);
+        }
+      },1000)
+    }
+    function stbreak(){
+      var brk=parseInt(document.getElementById('break').value)*60;
+      var s = setInterval(function() {
+        document.getElementById('time').innerHTML=brk+' seconds remaining in break';
+        brk=brk-1;
+        if(brk<0){
+          clearInterval(s);
+          alert("break has ended!!");
+
+        }
+      },1000)
+    }
+
+    </script>
+
+  </body>
+</html>
