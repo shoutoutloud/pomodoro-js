@@ -5,6 +5,59 @@
       .tm{
         font-size: 24px;
       }
+      input[type=text], textarea {
+      -webkit-transition: all 0.30s ease-in-out;
+      -moz-transition: all 0.30s ease-in-out;
+      -ms-transition: all 0.30s ease-in-out;
+      -o-transition: all 0.30s ease-in-out;
+      outline: none;
+      padding: 3px 0px 3px 3px;
+      margin: 5px 1px 3px 0px;
+        border: 1px so  lid #DDDDDD;
+      }
+
+      input[type=text]:focus, textarea:focus {
+      box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      padding: 3px 0px 3px 3px;
+      margin: 5px 1px 3px 0px;
+      border: 1px solid rgba(81, 203, 238, 1);
+      }
+      .btn {
+    position: relative;
+    background-color: #0099ff;
+    border: 5px;
+    font-size: 15px;
+    color: #FFFFFF;
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.btn:after {
+    content: "";
+    background: #b3e0ff;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
     </style>
     <meta charset="utf-8">
     <title>Pomodoro clock</title>
@@ -12,9 +65,9 @@
   <body>
     <h1>POMODORO CLOCK</h1>
     Enter time(in minutes) <br>
-    <input type="text" id="pom" name="" value=""> <br>Enter break time(in minutes) <br>
-    <input type="text" id="break" name="" value="">
-    <button onclick="start()" type="button" name="button">START</button>
+    <input type="text" id="pom" value=""> <br>Enter break time(in minutes) <br>
+    <input type="text" id="break" value=""><br>
+    <button class="btn" onclick="start()" type="button" name="button">START</button>
     <div id="time" class="tm">
 
     </div>
